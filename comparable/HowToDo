@@ -1,0 +1,32 @@
+1. 图书类，自然顺序按ISBN从小到大
+2. 设计比较器（按书名、作者、价格、销量、评论数）
+3. 排序并打印
+
+第一步：创建类
+创建一个Book类，定义属性：ISBN、书名、作者、价格、销量、评论数；
+继承接口Comparable覆写compareTo()方法，以便于实现自然顺序按ISBN从小到大；
+覆写toString方法，确保打印格式。
+
+第二步：写比较器
+TitleComparator类实现Comparator接口，覆写compare()方法;
+AuthorComparator类实现Comparator接口，覆写compare()方法;
+PriceComparator类实现Comparator接口，覆写compare()方法,用boolean类型做判断，利用返回值确定升序or降序；
+SalesComparator类实现Comparator接口，覆写compare()方法;
+CommentComparator类实现Comparator接口，覆写compare()方法;
+
+第三步：排序
+7种排序任选一个，这里我用插入排序：在无序区间选择第一个数，在有序区间选择合适的位置做插入。
+排序类中有两个排序方法；
+1）只传数组，按IBSN自然顺序排序；
+2）传数组和比较器，按书名、作者、价格、销量、评论数排序；
+这两种方法的区别：
+1.参数列表不同   2.比较的方法不同（compareTo（）和compare（））
+
+第四步：主方法
+创建一个Book类型的数组，用来存放Book类的对象；
+在数组中加入要排序的元素；
+按不同的排序做打印。
+
+
+
+
