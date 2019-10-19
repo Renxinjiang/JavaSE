@@ -1,0 +1,22 @@
+1.反编译
+先用javac -encoding Utf-8 Main.java编译生成一个.class文件
+javap -c Main.class>out.txt进行反编译（out.txt是一个文件名）
+生成编译的文件
+
+2.常量池
+1）作用：节省内存空间
+2）保证：常量池中不会出现重复的对象
+
+3.字符串不可变性
+为什么 String 要不可变?(不可变对象的好处是什么?)
+1). 方便实现字符串对象池. 如果 String 可变, 那么对象池就需要考虑何时深拷贝字符串的问题了.
+2). 不可变对象是线程安全的.
+3). 不可变对象更方便缓存 hash code, 作为 key 时可以更高效的保存到 HashMap 中.
+
+4.StringBuilder和StringBuffer
+
+5.String常见方法
+join()是静态方法，要通过类名调用  // 拼接
+concat()
+
+6.自己实现一个String，实现常见方法，保证对象不可变
