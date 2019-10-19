@@ -58,4 +58,51 @@ public final class MyString {
     public char[] toCharArray(){
         return Arrays.copyOf(value,value.length);
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        MyString myString = (MyString) o;
+        return Arrays.equals(value, myString.value);
+    }
+
+    @Override
+    public int hashCode() {
+        return Arrays.hashCode(value);
+    }
+
+    public MyString toUpperCase(){
+        char[] value = toCharArray();
+        for (int i = 0;i < value.length;i++){
+            if (Character.isLowerCase(value[i])){
+                value[i] = Character.toUpperCase(value[i]);
+            }
+        }
+        return new MyString(value);
+    }
+
+    public boolean equalsIgnoreCase(MyString o){
+        if (o == null){
+            return false;
+        }
+        if (value.length != o.value.length){
+            return false;
+        }
+        for (int i = 0; i < value.length;i++){
+            char c = Character.toUpperCase(value[i]);
+            char d = Character.toUpperCase(o.value[i]);
+            if (c != d){
+                return false;
+            }
+        }
+        return true;
+    }
+
+    public MyString concat(MyString o){
+        char[] v = new char[value.length + o.value.length];
+        System.arraycopy(value,0,v,0,value.length);
+        System.arraycopy(o.value,0,v,value.length,o.value.length);
+        return new MyString(v);
+    }
 }
